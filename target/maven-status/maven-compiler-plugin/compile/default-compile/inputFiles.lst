@@ -1,0 +1,8 @@
+/home/aximsoft/IdeaProjects/FormTask/src/main/java/base/BaseTest.java
+/home/aximsoft/IdeaProjects/FormTask/src/main/java/enums/FrameType.java
+/home/aximsoft/IdeaProjects/FormTask/src/main/java/pages/BookingFormPage.java
+/home/aximsoft/IdeaProjects/FormTask/src/main/java/testdata/TestData.java
+/home/aximsoft/IdeaProjects/FormTask/src/main/java/utils/DriverFactory.java
+/home/aximsoft/IdeaProjects/FormTask/src/main/java/utils/FrameUtil.java
+/home/aximsoft/IdeaProjects/FormTask/src/main/java/utils/ScreenshotUtil.java
+/home/aximsoft/IdeaProjects/FormTask/src/main/java/utils/WaitUtil.java

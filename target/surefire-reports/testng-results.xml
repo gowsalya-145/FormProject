@@ -2,16 +2,16 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-06-12T17:10:00 IST" name="Surefire suite" finished-at="2026-06-12T17:10:27 IST" duration-ms="26983">
+  <suite started-at="2026-06-12T18:33:08 IST" name="Surefire suite" finished-at="2026-06-12T18:33:18 IST" duration-ms="10666">
     <groups>
     </groups>
-    <test started-at="2026-06-12T17:10:00 IST" name="Surefire test" finished-at="2026-06-12T17:10:27 IST" duration-ms="26983">
+    <test started-at="2026-06-12T18:33:08 IST" name="Surefire test" finished-at="2026-06-12T18:33:18 IST" duration-ms="10666">
       <class name="Tests.JotFormTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Tests.JotFormTest@51dcb805]" started-at="2026-06-12T17:10:00 IST" name="setup" finished-at="2026-06-12T17:10:10 IST" duration-ms="10636" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Tests.JotFormTest@51dcb805]" started-at="2026-06-12T18:33:08 IST" name="setup" finished-at="2026-06-12T18:33:14 IST" duration-ms="6534" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="submitBookingForm(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Tests.JotFormTest@51dcb805]" started-at="2026-06-12T17:10:10 IST" name="submitBookingForm" data-provider="bookingData" finished-at="2026-06-12T17:10:26 IST" duration-ms="16082" status="PASS">
+        <test-method signature="submitBookingForm(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:Tests.JotFormTest@51dcb805]" started-at="2026-06-12T18:33:14 IST" name="submitBookingForm" data-provider="bookingData" finished-at="2026-06-12T18:33:18 IST" duration-ms="3840" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -52,7 +52,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- submitBookingForm -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Tests.JotFormTest@51dcb805]" started-at="2026-06-12T17:10:26 IST" name="tearDown" finished-at="2026-06-12T17:10:27 IST" duration-ms="107" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Tests.JotFormTest@51dcb805]" started-at="2026-06-12T18:33:18 IST" name="tearDown" finished-at="2026-06-12T18:33:18 IST" duration-ms="105" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->

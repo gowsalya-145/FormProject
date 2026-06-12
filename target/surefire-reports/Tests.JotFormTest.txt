@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: Tests.JotFormTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 27.74 s -- in Tests.JotFormTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.35 s -- in Tests.JotFormTest

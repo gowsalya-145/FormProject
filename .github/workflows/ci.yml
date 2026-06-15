@@ -71,6 +71,12 @@ jobs:
           -Dbrowser=${{ github.event.inputs.browser }} \
           -Dthreads=${{ github.event.inputs.threads }}
 
+      - name: Install Allure
+        if: always()
+        run: |
+          wget https://github.com/allure-framework/allure2/releases/download/2.35.1/allure-2.35.1.tgz
+          tar -xzf allure-2.35.1.tgz
+
       - name: Generate Allure Report
         if: always()
         run: mvn allure:report

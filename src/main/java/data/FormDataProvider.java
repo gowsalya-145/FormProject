@@ -20,7 +20,7 @@ public class FormDataProvider {
                         "John",
                         "David",
                         "john@test.com",
-                        "Deluxe Room",
+                        "Standard Room (1 to 2 People)",
                         "3",
                         "AI204",
                         "Extra Bed"
@@ -29,7 +29,7 @@ public class FormDataProvider {
                         "Priya",
                         "S",
                         "priya@test.com",
-                        "Suite Room",
+                        "Standard Room (1 to 2 People)",
                         "4",
                         "AI205",
                         "Sea View"

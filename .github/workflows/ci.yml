@@ -67,9 +67,10 @@ jobs:
 
       - name: Run Selenium Tests
         run: |
-          mvn clean test \
-          -Dbrowser=${{ github.event.inputs.browser }} \
-          -Dthreads=${{ github.event.inputs.threads }}
+         mvn clean test \
+         -DsuiteXmlFile=testng.xml \
+         -Dbrowser=${{ github.event.inputs.browser }} \
+         -Dthreads=${{ github.event.inputs.threads }}
           
       - name: Upload Allure Results
         if: always()

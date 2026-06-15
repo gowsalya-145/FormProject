@@ -19,9 +19,15 @@ public class BaseTest {
         WebDriverManager.chromedriver().setup();
 
         ChromeOptions options = new ChromeOptions();
+
         options.addArguments("--headless=new");
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--remote-allow-origins=*");
+        options.addArguments("--disable-gpu");
+        options.addArguments("--disable-background-networking");
+        options.addArguments("--disable-background-timer-throttling");
+        options.addArguments("--disable-renderer-backgrounding");
 
         driver = new ChromeDriver(options);
 
@@ -37,9 +43,15 @@ public class BaseTest {
 
         if (driver != null) {
             try {
-                driver.quit();
+                driver.close();   // close tab first
             } catch (Exception e) {
-                System.out.println("Driver already closed");
+                System.out.println("Already closed");
+            }
+
+            try {
+                driver.quit();    // then quit safely
+            } catch (Exception e) {
+                System.out.println("Driver quit failed, ignoring");
             }
         }
     }

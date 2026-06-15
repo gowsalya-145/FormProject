@@ -20,17 +20,10 @@ public class JotFormTest extends BaseTest {
                                   String flightNumber,
                                   String specialRequest) {
 
-        JotFormPage page = new JotFormPage(driver);
+        JotFormPage page = new JotFormPage(driver, wait);
 
-        page.fillForm(
-                firstName,
-                lastName,
-                email,
-                roomType,
-                guests,
-                flightNumber,
-                specialRequest
-        );
+        page.fillForm(firstName, lastName, email,
+                roomType, guests, flightNumber, specialRequest);
 
         page.clickSubmit();
     }

@@ -16,9 +16,7 @@ public enum FormData {
     DEPARTURE_DAY(By.xpath("//select[@name='q20_departureDate20[day]']")),
     DEPARTURE_YEAR(By.xpath("//select[@name='q20_departureDate20[year]']")),
 
-    FREE_PICKUP_YES(
-            By.xpath("//label[@for='input_10_0']")
-    ),
+    FREE_PICKUP_YES(By.xpath("//label[@for='input_10_0']")),
 
     FLIGHT_NUMBER(By.xpath("//input[@name='q28_flightNumber28']")),
 

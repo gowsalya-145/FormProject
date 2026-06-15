@@ -1,18 +1,24 @@
 package pages;
 import enums.FormData;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-
+import java.time.Duration;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 public class JotFormPage {
 
-
     private final WebDriver driver;
+    private final WebDriverWait wait;
 
-    public JotFormPage(WebDriver driver) {
+    public JotFormPage(WebDriver driver, WebDriverWait wait) {
         this.driver = driver;
+        this.wait = wait;
+    }
+
+    private WebElement getElement(By locator) {
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
     public void fillForm(String firstName,
@@ -23,96 +29,60 @@ public class JotFormPage {
                          String flightNumber,
                          String specialRequest) {
 
-        // First Name
-        driver.findElement(FormData.FIRST_NAME.getLocator())
-                .sendKeys(firstName);
+        getElement(FormData.FIRST_NAME.getLocator()).sendKeys(firstName);
+        getElement(FormData.LAST_NAME.getLocator()).sendKeys(lastName);
+        getElement(FormData.EMAIL.getLocator()).sendKeys(email);
 
-        // Last Name
-        driver.findElement(FormData.LAST_NAME.getLocator())
-                .sendKeys(lastName);
+        Select room = new Select(getElement(FormData.ROOM_TYPE.getLocator()));
+        room.selectByVisibleText(roomType);
 
-        // Email
-        driver.findElement(FormData.EMAIL.getLocator())
-                .sendKeys(email);
+        WebElement guest = getElement(FormData.GUESTS.getLocator());
+        guest.clear();
+        guest.sendKeys(guests);
 
-        // Room Type
-        Select roomTypeDropdown =
-                new Select(driver.findElement(FormData.ROOM_TYPE.getLocator()));
-
-        roomTypeDropdown.selectByVisibleText(roomType);
-
-        // Guests
-        WebElement guestField =
-                driver.findElement(FormData.GUESTS.getLocator());
-
-        guestField.clear();
-        guestField.sendKeys(guests);
-
-        // Arrival Date
-        WebElement arrivalDate =
-                driver.findElement(FormData.ARRIVAL_DATE.getLocator());
-
+        WebElement arrivalDate = getElement(FormData.ARRIVAL_DATE.getLocator());
         arrivalDate.sendKeys(Keys.CONTROL + "a");
         arrivalDate.sendKeys("06-20-2026");
 
-        // Arrival Time
-        WebElement arrivalTime =
-                driver.findElement(FormData.ARRIVAL_TIME.getLocator());
-
+        WebElement arrivalTime = getElement(FormData.ARRIVAL_TIME.getLocator());
         arrivalTime.sendKeys(Keys.CONTROL + "a");
         arrivalTime.sendKeys("10:30");
 
-        // AM/PM
-        Select ampm =
-                new Select(driver.findElement(FormData.ARRIVAL_AMPM.getLocator()));
+        new Select(getElement(FormData.ARRIVAL_AMPM.getLocator()))
+                .selectByVisibleText("AM");
 
-        ampm.selectByVisibleText("AM");
+        new Select(getElement(FormData.DEPARTURE_MONTH.getLocator()))
+                .selectByVisibleText("June");
 
-        // Departure Month
-        Select depMonth =
-                new Select(driver.findElement(FormData.DEPARTURE_MONTH.getLocator()));
+        new Select(getElement(FormData.DEPARTURE_DAY.getLocator()))
+                .selectByVisibleText("25");
 
-        depMonth.selectByVisibleText("June");
+        new Select(getElement(FormData.DEPARTURE_YEAR.getLocator()))
+                .selectByVisibleText("2026");
 
-        // Departure Day
-        Select depDay =
-                new Select(driver.findElement(FormData.DEPARTURE_DAY.getLocator()));
-
-        depDay.selectByVisibleText("25");
-
-        // Departure Year
-        Select depYear =
-                new Select(driver.findElement(FormData.DEPARTURE_YEAR.getLocator()));
-
-        depYear.selectByVisibleText("2026");
-
-        // Free Pickup Radio Button
-        WebElement pickup =
-                driver.findElement(FormData.FREE_PICKUP_YES.getLocator());
-
-        ((JavascriptExecutor) driver)
-                .executeScript("arguments[0].scrollIntoView(true);", pickup);
-
+        WebElement pickup = getElement(FormData.FREE_PICKUP_YES.getLocator());
         ((JavascriptExecutor) driver)
                 .executeScript("arguments[0].click();", pickup);
 
-        // Flight Number
-        driver.findElement(FormData.FLIGHT_NUMBER.getLocator())
-                .sendKeys(flightNumber);
-
-        // Special Request
-        driver.findElement(FormData.SPECIAL_REQUEST.getLocator())
-                .sendKeys(specialRequest);
+        getElement(FormData.FLIGHT_NUMBER.getLocator()).sendKeys(flightNumber);
+        getElement(FormData.SPECIAL_REQUEST.getLocator()).sendKeys(specialRequest);
     }
 
     public void clickSubmit() {
 
-        WebElement submit =
-                driver.findElement(FormData.SUBMIT.getLocator());
+        try {
+            WebElement submit = wait.until(
+                    ExpectedConditions.elementToBeClickable(FormData.SUBMIT.getLocator())
+            );
 
-        ((JavascriptExecutor) driver)
-                .executeScript("arguments[0].scrollIntoView(true);", submit);
+            ((JavascriptExecutor) driver)
+                    .executeScript("arguments[0].scrollIntoView(true);", submit);
 
-        submit.click();
+            submit.click();
+
+        } catch (Exception e) {
+            System.out.println("Submit button not found or not clickable");
+            e.printStackTrace();
+        }
     }
 }

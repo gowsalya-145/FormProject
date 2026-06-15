@@ -3,7 +3,7 @@ import enums.FormData;
 import org.testng.annotations.DataProvider;
 public class FormDataProvider {
 
-    @DataProvider(name = "bookingData")
+    @DataProvider(name = "bookingData", parallel = true)
     public Object[][] bookingData() {
 
         return new Object[][]{
@@ -15,6 +15,24 @@ public class FormDataProvider {
                         "2",
                         "AI203",
                         "Need Airport Pickup"
+                },
+                {
+                        "John",
+                        "David",
+                        "john@test.com",
+                        "Deluxe Room",
+                        "3",
+                        "AI204",
+                        "Extra Bed"
+                },
+                {
+                        "Priya",
+                        "S",
+                        "priya@test.com",
+                        "Suite Room",
+                        "4",
+                        "AI205",
+                        "Sea View"
                 }
         };
     }
